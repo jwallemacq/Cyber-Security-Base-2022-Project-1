@@ -12,4 +12,3 @@ class Product(models.Model):
     product_price = models.IntegerField(default=0)
     def __str__(self):
         return self.product_text
-    
