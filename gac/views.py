@@ -7,7 +7,6 @@ from django.contrib.auth.models import User
 
 class ProductsByUserListView(LoginRequiredMixin,generic.ListView):
     model = Product
-#    template_name = 'gac/product_list_user.html'
     def get_queryset(self):
         return Product.objects.filter(supplier=self.request.user)
 
