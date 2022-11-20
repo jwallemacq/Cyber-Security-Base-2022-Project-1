@@ -5,7 +5,8 @@ from django.views import generic
 from .models import Product
 from django.contrib.auth.models import User
 
-class ProductsByUserListView(LoginRequiredMixin,generic.ListView):
+class ProductsByUserListView(PermissionRequiredMixin,generic.ListView):
+    permission_required = "gac.view_product"
     model = Product
     def get_queryset(self):
         return Product.objects.filter(supplier=self.request.user)
